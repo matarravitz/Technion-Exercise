@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Query Results</title>
+    <style>
+        body {
+            font-family: 'Calibri', Arial, sans-serif;
+            background-color: lavenderblush; 
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            color: deeppink;
+            text-align: center;
+            margin-top: 20px;
+        }
+        h3 {
+            color: black; 
+            text-align: center;
+            margin-top: 20px;
+        }
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid deeppink;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: whitesmoke; 
+        }
+
+        tr:nth-child(even) {
+            background-color: lavender; 
+        }
+
+        tr:nth-child(odd) {
+            background-color: whitesmoke;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Query Results</h2>
+    <table>
+    <h3>Query 1:</h3>
+        <tr>
+            <th>Genre</th>
+            <th>Number of Movies</th>
+            <th>Average Rating</th>
+        </tr>
+        {% for row in QueryResults1 %}
+        <tr>
+            <td>{{ row.genre }}</td>
+            <td>{{ row.numberOfGM }}</td>
+            <td>{{ row.avgRating }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+        <h3>Query 2:</h3>
+<table>
+        <tr>
+            <th>Actor Name</th>
+            <th>Number of Movies</th>
+            
+        </tr>
+        {% for row in QueryResults2 %}
+        <tr>
+            <td>{{ row.aName }}</td>
+            <td>{{ row.numOfMovies }}</td>
+          
+        </tr>
+        {% endfor %}
+    </table>
+        <h3>Query 3:</h3>
+<table>
+        <tr>
+            <th>Country</th>
+            <th>User ID</th>
+        </tr>
+        {% for row in QueryResults3 %}
+        <tr>
+            <td>{{ row.country }}</td>
+            <td>{{ row.uID }}</td>
+        </tr>
+        {% endfor %}
+    
+    </table>
+<a href="{% url 'index' %}" class="query-link">Home</a>
+<br><br>
+<a href="{% url 'QueryResults' %}" class="query-link">Query Results</a>
+<br><br>
+<a href="{% url 'AddActorToMovie' %}" class="query-link">Add Actor To Movie</a>
+<br><br>
+<a href="{% url 'viewDocumentation' %}" class="query-link">Record Watching</a>
+
+</body>
+</html>
